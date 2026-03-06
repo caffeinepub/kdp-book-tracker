@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Cabinet Grotesk — Display headings */
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Outfit — Body / UI */
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/Outfit-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Blue primary: #1a73e8 → OKLCH approx 0.548 0.189 254.6 */
+    --primary: 0.548 0.189 254.6;
+    --primary-foreground: 1 0 0;
+
+    /* Blue light (hover/accent tint) */
+    --primary-light: 0.94 0.04 254.6;
+
+    /* Backgrounds */
+    --background: 0.972 0.006 247;
+    --foreground: 0.15 0.02 254.6;
+
+    --card: 1 0 0;
+    --card-foreground: 0.15 0.02 254.6;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.15 0.02 254.6;
+
+    --secondary: 0.938 0.025 254.6;
+    --secondary-foreground: 0.548 0.189 254.6;
+
+    --muted: 0.955 0.01 247;
+    --muted-foreground: 0.52 0.03 254.6;
+
+    --accent: 0.94 0.04 254.6;
+    --accent-foreground: 0.548 0.189 254.6;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 1 0 0;
+
+    --border: 0.9 0.015 254.6;
+    --input: 0.92 0.012 254.6;
+    --ring: 0.548 0.189 254.6;
+
+    --chart-1: 0.548 0.189 254.6;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    --sidebar: 0.985 0 0;
+    --sidebar-foreground: 0.145 0 0;
+    --sidebar-primary: 0.548 0.189 254.6;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.97 0 0;
+    --sidebar-accent-foreground: 0.205 0 0;
+    --sidebar-border: 0.922 0 0;
+    --sidebar-ring: 0.548 0.189 254.6;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .stat-number {
+    background: linear-gradient(135deg, oklch(0.548 0.189 254.6), oklch(0.45 0.2 265));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .header-pattern {
+    background-color: oklch(0.548 0.189 254.6);
+    background-image:
+      radial-gradient(circle at 20% 50%, oklch(0.65 0.15 254.6 / 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, oklch(0.45 0.2 265 / 0.4) 0%, transparent 40%);
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-card-hover hover:-translate-y-0.5;
+  }
+}
